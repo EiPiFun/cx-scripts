@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+top -b -i -w 82 -n 1|grep Cpu|cut -d ' ' -f 2|cut -d . -f 1
+

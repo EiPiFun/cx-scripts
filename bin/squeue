@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+/usr/bin/squeue $@ -o '%.16R %.5C %.10P %.5A %.10u %.2t %.12M   %j' --sort='N,-p'
+/usr/bin/sinfo -o '%.16n %.14C' --sort='N'
+

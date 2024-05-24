@@ -1,0 +1,9 @@
+#!/usr/bin/sh
+
+home_id=1
+if [ $# -gt 0 ];then
+home_id=$1
+fi
+
+HOMEXINFO=$(df -h|grep /homex/home$home_id)
+echo ${HOMEXINFO:33:4}

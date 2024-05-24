@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+gpuputil_raw|sort -n|head -n 1
+
+

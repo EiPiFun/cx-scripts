@@ -1,0 +1,4 @@
+#!/usr/bin/sh
+
+sensors|grep Core|cut -d . -f 1|cut -d + -f 2|sort -n|tail -n 1
+

@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+
+if [ $# -gt 0 ];then
+nodename=$1
+sshpass -p "statuser" ssh statuser@"$nodename" gpuputil_raw
+else
+gpuputil_raw
+fi
+
+

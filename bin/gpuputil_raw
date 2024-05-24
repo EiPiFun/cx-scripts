@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+nvidia-smi -q -d UTILIZATION|grep Gpu|cut -d : -f 2|cut -d ' ' -f 2
+
+

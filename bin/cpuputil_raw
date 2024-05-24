@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+top -b -i -1 -w 164 -n 1|grep Cpu
+
+

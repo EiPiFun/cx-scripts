@@ -1,0 +1,18 @@
+#!/usr/bin/sh
+
+if [ $# -gt 0 ];then
+nodename=$1
+rm -f /homex/home1/public/nodestat/"$nodename"cpuputil
+rm -f /homex/home1/public/nodestat/"$nodename"cpuputil_raw
+sshpass -p "statuser" ssh statuser@"$nodename" cpuputil_raw > /homex/home1/public/nodestat/"$nodename"cpuputil_raw
+else
+nodename=$(hostname)
+rm -f /homex/home1/public/nodestat/"$nodename"cpuputil
+rm -f /homex/home1/public/nodestat/"$nodename"cpuputil_raw
+cpuputil_raw > /homex/home1/public/nodestat/"$nodename"cpuputil_raw
+fi
+
+cat /homex/home1/public/nodestat/"$nodename"cpuputil_raw|cut -d % -f 2|cut -d u -f 2 > /homex/home1/public/nodestat/"$nodename"cpuputil
+cat /homex/home1/public/nodestat/"$nodename"cpuputil_raw|cut -d % -f 3|cut -d u -f 2 >> /homex/home1/public/nodestat/"$nodename"cpuputil
+echo "CPU:Usage%";cat /homex/home1/public/nodestat/"$nodename"cpuputil | sort -g
+

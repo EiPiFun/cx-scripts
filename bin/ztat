@@ -1,0 +1,33 @@
+#!/usr/bin/sh
+
+if [ $# -gt 0 ];then
+
+nodename=$1
+sshpass -p "statuser" ssh statuser@"$nodename" nodestat > /homex/home1/public/nodestat/"$nodename"stat
+echo "  Node  |     CPU     |     GPU"
+cat /homex/home1/public/nodestat/"$nodename"stat
+
+else
+
+for i in 01 02 03 04 05 06
+do
+sshpass -p "statuser" ssh statuser@"node$i" nodestat > /homex/home1/public/nodestat/"node$i"stat &
+done
+
+printf " Loading"
+sleep 1.00
+for i in {0..4}
+do
+printf "."
+sleep 1.00
+done
+printf "\033[0K\r"
+
+echo "  Node  |     CPU     |     GPU"
+for i in 01 02 03 04 05 06
+do
+cat /homex/home1/public/nodestat/"node$i"stat
+done
+
+fi
+

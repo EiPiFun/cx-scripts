@@ -1,0 +1,3 @@
+#!/usr/bin/sh
+
+printf " %6s | %3s C  %3s%% | %3s C  %3s%% \n" "$(hostname)" "$(cpuhtem)" "$(cpututil)" "$(gpuhtem)" "$(gpulutil)"
