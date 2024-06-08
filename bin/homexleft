@@ -5,5 +5,6 @@ if [ $# -gt 0 ];then
 home_id=$1
 fi
 
-HOMEXINFO=$(df -h|grep /homex/home$home_id)
-echo ${HOMEXINFO:33:4}
+df -h|grep /homex/home$home_id|tr -s ' '|cut -d ' ' -f 4
+
+

@@ -1,3 +1,5 @@
 #!/usr/bin/sh
 
-nvidia-smi -q -d TEMPERATURE | grep 'GPU Current Temp'|cut -d : -f 2|cut -d ' ' -f 2|sort -n|tail -n 1
+nvidia-smi -q -d TEMPERATURE|grep 'GPU Current Temp'|cut -d : -f 2|cut -d ' ' -f 2|sort -n|tail -n 1
+
+
